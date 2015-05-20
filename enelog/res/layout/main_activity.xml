@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+		<TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="60dp"
+        android:textStyle="bold" />
+		
+		<TextView
+        android:id="@+id/url_link2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+		
+		<TextView  
+		android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:id="@+id/Station"   />  
+   
+        
+        <TextView 
+		android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:id="@+id/Acc"   />  
+        
+         <TextView  
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:id="@+id/MAG"   /> 
+        
+         <TextView  
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:id="@+id/Ori"   />  
+         <TextView  
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:id="@+id/GYro"   />
+  
+         <TextView  
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:id="@+id/Light"   />
+        
+         <TextView  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:id="@+id/Tem"   />
+  
+         <TextView  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:id="@+id/Hum"   /> 
+       
+        <Button  
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text="@string/stop"
+        android:id="@+id/stop"   />
+
+        <Button
+            android:layout_gravity="center"
+            android:id="@+id/label"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Label" />
+        
+         <Button
+            android:layout_gravity="center"
+            android:id="@+id/dataView"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LabelDateView" />
+        
+</LinearLayout>

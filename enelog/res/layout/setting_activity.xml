@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+     <TextView  
+        android:layout_width="fill_parent"  
+        android:layout_height="wrap_content"  
+        android:text="@string/note" 
+        android:textSize="15dp"
+        android:id="@+id/note" />  
+        
+        <CheckBox  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text="@string/Acc"  
+        android:id="@+id/Acc"   />  
+        <CheckBox  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text="@string/MAG"  
+        android:id="@+id/MAG"   />  
+         <CheckBox  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text="@string/Ori"  
+        android:id="@+id/Ori"   />  
+         <CheckBox  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text="@string/GYro"  
+        android:id="@+id/GYro"   />  
+         <CheckBox  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content" 
+        android:text="@string/Light"  
+        android:id="@+id/Light"   /> 
+        
+         
+        <CheckBox  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text="@string/Tem"  
+        android:id="@+id/Tem"   /> 
+        <CheckBox  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80px"  
+        android:text="@string/Hum"  
+        android:id="@+id/Hum"   /> 
+        
+      <!--     <CheckBox  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text="@string/Pressure"  
+        android:id="@+id/Pressure"   />  
+         <CheckBox  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text="@string/Tem"  
+        android:id="@+id/Tem"   />  
+         
+         <CheckBox  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text="@string/Proximity"  
+        android:id="@+id/Proximity"   />       -->
+        <TextView  
+        android:layout_width="fill_parent"  
+        android:layout_height="wrap_content"  
+        android:text="@string/text_login_url" 
+        android:textSize="15dp"
+        android:id="@+id/text_login_url" /> 
+        <EditText  
+        android:layout_width="fill_parent"  
+        android:layout_height="wrap_content" 
+        android:hint="ログインアドレスを入力してください"  
+        android:id="@+id/login_url"   /> 
+        <TextView  
+        android:layout_width="fill_parent"  
+        android:layout_height="wrap_content"  
+        android:text="@string/text_upload_url"
+        android:textSize="15dp" 
+        android:id="@+id/text_upload_url" /> 
+        <EditText  
+        android:layout_width="fill_parent"  
+        android:layout_height="wrap_content"
+        android:hint="アップロードアドレスを入力してください"   
+        android:id="@+id/upload_url"   /> 
+         <Button  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text="@string/OK"  
+        android:id="@+id/OK"   />  
+        
+</LinearLayout>
