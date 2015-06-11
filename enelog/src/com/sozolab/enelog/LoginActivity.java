@@ -80,7 +80,7 @@ public class LoginActivity extends Activity {
     EditText username;
 	EditText password;
 	ImageButton login;
-	Button register;
+	Button register, label;
 	private CheckBox rem_pw, auto_login; 
 	public static SharedPreferences sp,page; 
 	LinearLayout l;
@@ -109,6 +109,16 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.login_activity);
 		prefs= getSharedPreferences("syllabus", 0);
 		findViews();
+		
+		label = (Button)findViewById(R.id.label);
+		label.setOnClickListener(new OnClickListener() {
+	            public void onClick(View v) {
+	                // Sub 画面を起動
+	                Intent intent = new Intent();
+	                intent.setClassName("com.sozolab.enelog", "com.sozolab.enelog.LabelViewActivity");
+	                startActivity(intent);
+	            }
+	        });
 		
 		if(sp.getString("page", "not_auto")!=null){
 			//自動ログイン

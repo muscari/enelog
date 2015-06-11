@@ -22,7 +22,9 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Button;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.TableLayout;
 
 
 
@@ -55,64 +57,99 @@ private WriteFile wf = new WriteFile();
 		int displaySizeHeight = disp.getHeight();
 		
 		//ScrollView scrollView = new ScrollView(this);
+		//全体のスクロールビューを定義
 		ScrollView scrollView = (ScrollView)findViewById(R.id.scrollView1);
 		LinearLayout linearLayout = new LinearLayout(this);
 		linearLayout.setOrientation(LinearLayout.VERTICAL);
-		//ScrollViewにLinearLayoutを追加
+		//ScrollViewにLinearLayoutを追加カテゴリ用のレイアウト
 		scrollView.addView(linearLayout);
 		int buttonIdCounter = 0;
-		//追加したいView
-		//LinearLayoutにViewを追加
+		//LinearLayoutにViewを追加（カテゴリ名の追加）
 		final ArrayList<Integer> buttonIdList = new ArrayList<Integer>();
 		for(int i = 0; i <category.length; i++){
 			TextView tw = new TextView(this);
 			tw.setText(category[i]);
 			tw.setTextSize(20);
 			tw.setBackgroundColor(Color.GREEN);
-			//l1はカテゴリを表示するレイアウト
+			//LinearLayoutlのl1はカテゴリを表示するレイアウト
 			LinearLayout l1 = new LinearLayout(this);
 			l1.setOrientation(LinearLayout.VERTICAL);
 			LayoutParams lp1 = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
 			linearLayout.addView(l1);
 			l1.addView(tw,lp1);
 			int totalButtonSizeWidth = 0;
+			
+//			TableLayout tablelayout = new TableLayout(this);
+//			tablelayout.setGravity(Gravity.CENTER);
+//			setContentView(tablelayout);
+//			TableRow row = null;
+//			System.out.print("table");
+			
 			for(int j = 0; j < act[i].length; j++){
 				RelativeLayout r1 = new RelativeLayout(this);
 				RelativeLayout.LayoutParams rp =new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 				l1.addView(r1);
 				Button btn = new Button(this);
 				btn.setText(act[i][j]);
+				//ボタンに管理用のIDを付加
 				btn.setId(buttonIdCounter);
 				buttonIdCounter = buttonIdCounter + 1;
 				rp.setMargins(10,10,10,10);
+				//それぞれの行動ラベルのボタンにイベントの作成
 				btn.setOnClickListener(new OnClickListener(){
 					MeasureLabelTime mlt = new MeasureLabelTime();
 					public void onClick(View v){
-						if(mlt.getButtonFlag()==false){
+						//ボタンがクリックされたときにフラグがどちらかでif
+						if(mlt.getButtonFlag()==false){//ボタンが未選択の状態のとき
 							//クリックされたViewをキャスト
 							Button selectButton = (Button)v;
+							//クリックされたボタンのテキストを取得
 							labelName=(String) selectButton.getText();
+							//計測中はボタンを赤に
 							selectButton.setBackgroundColor(Color.RED);
+							//ラベルの時間をはかるために名前と時間をセットしフラグを立てる
 							mlt.setLabel(labelName);
 							mlt.setStartTime();
 							mlt.setButtonFlag();
+							//計測中のラベルの管理のためにArrayListに格納して管理
 							mltList.add(mlt);
+							//ボタンリストにも追加
 							buttonList.add(selectButton);
-						}else{
+						}else{//ボタンが選択されているとき
+							//ラベルの終了時刻をセット
 							mlt.setFinishTime();
+							//フラグを元に戻す
 							mlt.setButtonFlag();
+							//選択されたボタンをselectButtonとして認識
 							Button selectButton = (Button)v;
+							//ボタンの色を赤から灰色にもどす
 							selectButton.setBackgroundColor(Color.LTGRAY);
+							//以下、計測されたラベルの名前・開始終了時刻を表示
 							System.out.println(mlt.getLabel());
 							System.out.println(mlt.getStartTime());
 							System.out.println(mlt.getFinishTime());
+							//書き込むときのフォーマットをmessageで整形
 							String message = mlt.getLabel() + "," + mlt.getStartTime() + "," + mlt.getFinishTime() + "\n";
-							wf.writeFileInDevice(labelFileName,message);
+							//デバイスに書き込み
+							//wf.writeFileInDevice(labelFileName,message);
+							//以下、ボタンの管理の配列から除去
 							mltList.remove(mltList.indexOf(mlt));
 							buttonList.remove(buttonList.indexOf(selectButton));
 						}
 						}
 					});
+				
+//				if(j == 0 || j%4== 0){
+//					row = new TableRow(this);
+//					row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,TableLayout.LayoutParams.WRAP_CONTENT));
+//					row.setGravity(Gravity.CENTER);
+//					tablelayout.addView(row);
+//				}
+//				row.addView(btn,new TableRow.LayoutParams(50,50));
+//			
+//				
+				
+				
 				Paint p = new Paint();
 				if(totalButtonSizeWidth <= (displaySizeWidth - totalButtonSizeWidth)){
 					if(j == 0){
@@ -138,12 +175,13 @@ private WriteFile wf = new WriteFile();
 					totalButtonSizeWidth = 0;
 				}
 			}
-		}
 		
+		//すべてのボタンを停止するオールストップボタンを作る
 		Button allStopButton = (Button)findViewById(R.id.allStopButton);
+		//イベントの追加
 		allStopButton.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
-				if(buttonList.size()==0){
+				if(buttonList.size()==0){//選択中のボタンリストが空だったらなにもしない
 				}else{
 				for(int k=0; k < buttonList.size(); k++){
 					Button btn = buttonList.get(k);
@@ -155,7 +193,8 @@ private WriteFile wf = new WriteFile();
 					System.out.println(mlt.getStartTime());
 					System.out.println(mlt.getFinishTime());
 					String message = mlt.getLabel() + "," + mlt.getStartTime() + "," + mlt.getFinishTime() + "\n";
-					wf.writeFileInDevice(labelFileName,message);
+					
+					//wf.writeFileInDevice(labelFileName,message);
 				}
 
 				buttonList.clear();
@@ -164,6 +203,9 @@ private WriteFile wf = new WriteFile();
 			}
 		});	
 	}
+}
+
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

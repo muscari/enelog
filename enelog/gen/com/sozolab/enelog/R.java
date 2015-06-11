@@ -26,16 +26,16 @@ public final class R {
         public static final int pic=0x7f020001;
     }
     public static final class id {
-        public static final int Acc=0x7f08000b;
-        public static final int GYro=0x7f08000e;
-        public static final int Hum=0x7f080011;
-        public static final int Light=0x7f08000f;
-        public static final int MAG=0x7f08000c;
+        public static final int Acc=0x7f08000c;
+        public static final int GYro=0x7f08000f;
+        public static final int Hum=0x7f080012;
+        public static final int Light=0x7f080010;
+        public static final int MAG=0x7f08000d;
         public static final int OK=0x7f080021;
-        public static final int Ori=0x7f08000d;
+        public static final int Ori=0x7f08000e;
         public static final int Register=0x7f08001b;
-        public static final int Station=0x7f08000a;
-        public static final int Tem=0x7f080010;
+        public static final int Station=0x7f08000b;
+        public static final int Tem=0x7f080011;
         public static final int action_settings=0x7f080026;
         public static final int ageRegister=0x7f080017;
         public static final int allStopButton=0x7f080001;
@@ -43,7 +43,7 @@ public final class R {
         public static final int backgroundLayout=0x7f080002;
         public static final int dataView=0x7f080014;
         public static final int exit=0x7f080025;
-        public static final int label=0x7f080013;
+        public static final int label=0x7f080009;
         public static final int login=0x7f080008;
         public static final int login_url=0x7f08001e;
         public static final int logout=0x7f080024;
@@ -54,13 +54,13 @@ public final class R {
         public static final int scrollView1=0x7f080000;
         public static final int sexRegister=0x7f080018;
         public static final int start=0x7f080023;
-        public static final int stop=0x7f080012;
+        public static final int stop=0x7f080013;
         public static final int text_login_url=0x7f08001d;
         public static final int text_upload_url=0x7f08001f;
         public static final int title=0x7f080003;
         public static final int upload_url=0x7f080020;
         public static final int url_link1=0x7f080004;
-        public static final int url_link2=0x7f080009;
+        public static final int url_link2=0x7f08000a;
         public static final int url_link3=0x7f080022;
         public static final int username=0x7f080005;
         public static final int usernameRegister=0x7f080015;
